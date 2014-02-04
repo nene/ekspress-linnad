@@ -1,0 +1,223 @@
+body {
+    /* General settings */
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    color: black;
+    background: #010;
+    margin: 0;
+    padding: 0;
+
+    /* Centering #container in IE */
+    text-align: center;
+}
+
+#container {
+    /* Centering #container in other browsers */
+    margin: 0 auto;
+    text-align: left;
+
+    /* the same width as map image */
+    width: 676px;
+
+    /* styles for edges of the container */
+    background: #eee;
+    padding: 0.3em;
+    border-left: 3px solid green;
+    border-right: 3px solid green;
+}
+
+/* Hide heading at top and distances section at the bottom */
+h1,
+#distances {
+    display: none;
+}
+
+/* Header at top, that contains buttons */
+#header {
+    height: 1.8em;
+}
+#header h2 {
+    font-size: smaller;
+    font-weight: normal;
+    padding-top: 2px;
+    margin:0;
+    float: left;
+    padding-right: 1em;
+}
+
+/* move, add and delete buttons at left-hand-side */
+#header ul {
+    margin: 0;
+    padding: 0;
+}
+#header ul li {
+    display: block;
+    list-style-type: none;
+    float: left;
+    margin-right: 0.5em;
+}
+#header ul li button {
+    border: 1px outset green;
+    background: #6a6;
+}
+#header ul li button span {
+    text-decoration: underline;
+}
+#header ul li button:hover {
+    background: #8c8;
+}
+#header ul li button.selected {
+    border: 1px inset green;
+    background: #aea;
+}
+
+/* load and save buttons at right-hand-side */
+#header form {
+    float: right;
+    margin: 0;
+}
+#header form p {
+    margin: 0;
+}
+#header input {
+    border: 1px outset green;
+    background: #6a6;
+}
+#header input:hover {
+    background: #8c8;
+}
+#header label {
+    font-size: smaller;
+    padding-right: 1em;
+}
+
+
+/* Help message at the top of map */
+#help-message {
+    margin:0;
+    padding: 0 0.5em;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background: #eee;
+}
+
+
+
+/* The div that contains the map as background image */
+#towns {
+    background: url(img/map.jpg) no-repeat;
+    height: 566px;
+    position: relative;
+    clear: both;
+}
+#towns ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* The individual towns themself */
+#towns li {
+    float: left;
+    clear: both;
+    background: url(img/town.gif) no-repeat center 2px;
+    padding: 18px 2px 2px 2px;
+    font-size: smaller;
+    list-style-type: none;
+    display: block;
+    color: white;
+    position: absolute;
+    cursor: pointer;
+}
+#towns li:hover {
+    background-position:center 1px;
+    background-color: #484;
+    padding: 17px 1px 1px 1px;
+    border: 1px solid white;
+}
+/* town name */
+#towns li span {
+    cursor: text;
+}
+/* town name in edit-mode */
+#towns li input {
+    position: static;
+    width: 100px;
+}
+
+
+/* Lines that represent distances */
+#towns img {
+    position: absolute;
+}
+/* The values of distances */
+#towns input {
+    position: absolute;
+    font-size: 10px;
+    background: #cc0;
+    border: 1px solid white;
+    width: 25px;
+    text-align: center;
+}
+#towns input:hover {
+    background: #ff0;
+}
+#towns input:focus {
+    background: #ff0;
+    border: 1px solid red;
+}
+
+
+/**
+ * In different edit-modes
+ * the classname of the body reflects the name of the edit-mode.
+ */
+
+/**
+ * In delete mode,
+ * when hovering a town or a distance,
+ * the background changes to red and cursor becomes crosshair.
+ */
+body.delete #towns li,
+body.delete #towns li span,
+body.delete #towns input {
+    cursor: crosshair;
+}
+body.delete #towns li:hover,
+body.delete #towns input:hover {
+    background-color: red;
+}
+
+/**
+ * In add-town mode,
+ * when hovering empty areas on map, the cursor changes to crosshair.
+ */
+body.add-town #towns {
+    cursor: crosshair;
+}
+
+/**
+ * In add-distance mode,
+ * when hovering a town, cursor becomes crosshair.
+ * Clicking on the town selects it, and it becomes graphically distinct.
+ */
+body.add-distance #towns li,
+body.add-distance #towns li span {
+    cursor: crosshair;
+}
+body.add-distance #towns li.selected {
+    background-position:center 1px;
+    background-color: #484;
+    padding: 17px 1px 1px 1px;
+    border: 1px solid red;
+    cursor: crosshair;
+}
+
+/* Footer at the bottom with small gray font */
+#footer {
+    margin: 0;
+    padding-top: 0.3em;
+    font-size: x-small;
+    font-style: italic;
+    color: gray;
+    text-align: center;
+}

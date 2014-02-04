@@ -1,0 +1,30 @@
+Install instructions
+====================
+
+1. Create new MySQL database.
+
+2. Create database structure by running schema.sql
+
+3. Write you database connection settings to conf.php
+
+4. Move the contents of the archive to your webserver.
+   (INSTALL and schema.sql are not needed there).
+
+5. Point your browser to the install location.
+   Have fun!
+
+
+Notes
+=====
+
+Requires JavaScript and CSS to work correctly.
+
+
+Tested on:
+
+* MS Internet Explorer 6 and 7
+* Mozilla Firefox 2.0.0.1
+* Opera 9.20
+* Konqueror 3.5.5
+
+
